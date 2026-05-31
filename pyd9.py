@@ -1,7 +1,29 @@
 from pydantic import BaseModel, EmailStr, computed_field
 from typing import List, Dict
 
+#Serialization means converting a Python object into a format that can be stored, sent, or shared.
+#Why use serialization?
+#When you create a Pydantic object:
+'''
+Use serialization when data needs to go outside Python object form:
+Python object → dict / JSON → API / file / database / frontend
+'''
+'''
+Sending API response in FastAPI
+Saving data into a file
+Sending data to another service
+Saving into a database
+Hiding sensitive fields
+Example: you do not want to send password or private contact details.
+6. Sending only selected fields
+Example: frontend only needs name and age.
+Simple real-life example
+Think of a Pydantic model like a student ID card object in Python.
 
+But when you want to send it through WhatsApp, email, API, or save it in a file, you need to convert it into text/data format.
+
+That conversion is serialization.
+'''
 # Nested model
 class Address(BaseModel):
     city: str
